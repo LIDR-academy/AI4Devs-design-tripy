@@ -16,4 +16,13 @@ Develop an alternative version results2.html taking into account that in the ori
 ---
 # Sidebar functionality and mock data
 
-I want you to add functionality to the filter bar, and for the data to come from a mocked API call, with the filters working against that mock.
+# Role
+You are an expert frontend developer
+
+# Goal
+I want you to add functionality to the filter bar in results, and for the data to come from a mocked API call, with the filters working against that mock.
+
+@results-sidebar.html 
+
+# Format
+Use vanilla JS but apply best practices
