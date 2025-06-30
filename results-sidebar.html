@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results (Sidebar) - Tripy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#E61C5D',
+                        secondary: '#FFBD39',
+                        dark: '#112B3C',
+                        gray: '#808080',
+                        'light-gray': '#FAFAFA'
+                    },
+                    fontFamily: {
+                        'barlow': ['Barlow', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="components.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body class="font-barlow bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="section-content">
+            <div class="flex justify-between items-center h-24">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="logo">Tripy</div>
+                </div>
+                
+                <!-- Navigation Menu -->
+                <div class="mobile-hidden flex items-center space-x-10">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#pricing" class="nav-link">Price</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                
+                <!-- CTA Buttons -->
+                <div class="mobile-hidden flex items-center space-x-8">
+                    <a href="#" class="nav-link">Login</a>
+                    <a href="#" class="btn-primary">Register</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="mobile-only">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Results Header Section -->
+    <section class="section-container bg-white pt-32 pb-8">
+        <div class="section-content">
+            <!-- Breadcrumb Navigation -->
+            <nav class="breadcrumb">
+                <a href="index.html" class="breadcrumb-item">Home</a>
+                <span class="breadcrumb-separator">•</span>
+                <a href="#" class="breadcrumb-item">Search</a>
+                <span class="breadcrumb-separator">•</span>
+                <span class="breadcrumb-active">Results</span>
+            </nav>
+
+            <!-- Compact Search Bar -->
+            <div class="search-bar-compact max-w-4xl">
+                <div class="search-bar-compact-content">
+                    <!-- Location -->
+                    <div class="search-field-compact">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-primary"></i>
+                        <span class="search-field-compact-value">Allentown, New Mexico</span>
+                        <i data-lucide="chevron-down" class="w-3 h-3 text-gray"></i>
+                    </div>
+                    
+                    <!-- Divider -->
+                    <div class="search-divider-compact"></div>
+                    
+                    <!-- Date -->
+                    <div class="search-field-compact">
+                        <i data-lucide="calendar" class="w-4 h-4 text-primary"></i>
+                        <span class="search-field-compact-value">04 Aug, 2022</span>
+                        <i data-lucide="chevron-down" class="w-3 h-3 text-gray"></i>
+                    </div>
+                    
+                    <!-- Divider -->
+                    <div class="search-divider-compact"></div>
+                    
+                    <!-- Guests -->
+                    <div class="search-field-compact">
+                        <i data-lucide="users" class="w-4 h-4 text-primary"></i>
+                        <span class="search-field-compact-value">2 Guests</span>
+                        <i data-lucide="chevron-down" class="w-3 h-3 text-gray"></i>
+                    </div>
+                    
+                    <!-- Search Button -->
+                    <button class="search-button-compact">
+                        <i data-lucide="search" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Results Section with Sidebar -->
+    <section class="section-container bg-gray-50">
+        <div class="section-content">
+            <div class="results-layout">
+                <!-- Filter Sidebar -->
+                <aside class="filter-sidebar">
+                    <h2 class="filter-sidebar-title">Filters</h2>
+                    
+                    <!-- Price Range Filter -->
+                    <div class="filter-section">
+                        <h3 class="filter-section-title">Price Range</h3>
+                        <div class="range-slider">
+                            <input type="range" id="priceRange" class="range-input" min="0" max="1000" value="500">
+                            <div class="range-values">
+                                <span class="range-value">$0</span>
+                                <span class="range-value">$1000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tour Type Filter -->
+                    <div class="filter-section">
+                        <h3 class="filter-section-title">Tour Type</h3>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="checkbox-input" checked>
+                                <span class="checkbox-label">Adventure</span>
+                                <span class="checkbox-count">12</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="checkbox-input">
+                                <span class="checkbox-label">Cultural</span>
+                                <span class="checkbox-count">8</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="checkbox-input">
+                                <span class="checkbox-label">Relaxation</span>
+                                <span class="checkbox-count">15</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="checkbox-input" checked>
+                                <span class="checkbox-label">Wildlife</span>
+                                <span class="checkbox-count">6</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="checkbox-input">
+                                <span class="checkbox-label">Photography</span>
+                                <span class="checkbox-count">9</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Duration Filter -->
+                    <div class="filter-section">
+                        <h3 class="filter-section-title">Duration</h3>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="checkbox-input">
+                                <span class="checkbox-label">Half Day (1-4 hours)</span>
+                                <span class="checkbox-count">5</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="checkbox-input" checked>
+                                <span class="checkbox-label">Full Day (5-8 hours)</span>
+                                <span class="checkbox-count">18</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="checkbox-input">
+                                <span class="checkbox-label">Multi-day (2-7 days)</span>
+                                <span class="checkbox-count">12</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="checkbox-input">
+                                <span class="checkbox-label">Week+ (8+ days)</span>
+                                <span class="checkbox-count">3</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Rating Filter -->
+                    <div class="filter-section">
+                        <h3 class="filter-section-title">Minimum Rating</h3>
+                        <div class="rating-filter">
+                            <div class="rating-option active">
+                                <div class="rating-stars">
+                                    <i data-lucide="star" class="star-filled"></i>
+                                    <i data-lucide="star" class="star-filled"></i>
+                                    <i data-lucide="star" class="star-filled"></i>
+                                    <i data-lucide="star" class="star-filled"></i>
+                                    <i data-lucide="star" class="star-filled"></i>
+                                </div>
+                                <span class="rating-text">5.0 & up</span>
+                            </div>
+                            <div class="rating-option">
+                                <div class="rating-stars">
+                                    <i data-lucide="star" class="star-filled"></i>
+                                    <i data-lucide="star" class="star-filled"></i>
+                                    <i data-lucide="star" class="star-filled"></i>
+                                    <i data-lucide="star" class="star-filled"></i>
+                                    <i data-lucide="star" class="w-4 h-4 text-gray-300"></i>
+                                </div>
+                                <span class="rating-text">4.0 & up</span>
+                            </div>
+                            <div class="rating-option">
+                                <div class="rating-stars">
+                                    <i data-lucide="star" class="star-filled"></i>
+                                    <i data-lucide="star" class="star-filled"></i>
+                                    <i data-lucide="star" class="star-filled"></i>
+                                    <i data-lucide="star" class="w-4 h-4 text-gray-300"></i>
+                                    <i data-lucide="star" class="w-4 h-4 text-gray-300"></i>
+                                </div>
+                                <span class="rating-text">3.0 & up</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Amenities Filter -->
+                    <div class="filter-section">
+                        <h3 class="filter-section-title">Amenities</h3>
+                        <div class="toggle-group">
+                            <div class="toggle-item">
+                                <span class="toggle-label">Free Cancellation</span>
+                                <div class="toggle-switch active">
+                                    <div class="toggle-thumb"></div>
+                                </div>
+                            </div>
+                            <div class="toggle-item">
+                                <span class="toggle-label">Instant Booking</span>
+                                <div class="toggle-switch">
+                                    <div class="toggle-thumb"></div>
+                                </div>
+                            </div>
+                            <div class="toggle-item">
+                                <span class="toggle-label">Meals Included</span>
+                                <div class="toggle-switch active">
+                                    <div class="toggle-thumb"></div>
+                                </div>
+                            </div>
+                            <div class="toggle-item">
+                                <span class="toggle-label">Transportation</span>
+                                <div class="toggle-switch">
+                                    <div class="toggle-thumb"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Group Size Filter -->
+                    <div class="filter-section">
+                        <h3 class="filter-section-title">Group Size</h3>
+                        <div class="range-slider">
+                            <input type="range" id="groupSize" class="range-input" min="1" max="20" value="10">
+                            <div class="range-values">
+                                <span class="range-value">1 person</span>
+                                <span class="range-value">20+ people</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Filter Actions -->
+                    <div class="filter-actions">
+                        <button class="btn-filter-apply">Apply Filters</button>
+                        <button class="btn-filter-clear">Clear All</button>
+                    </div>
+                </aside>
+
+                <!-- Results Content -->
+                <div class="results-content">
+                    <!-- Results Header -->
+                    <div class="results-header-sidebar">
+                        <div class="results-info">
+                            <h1 class="results-title-sidebar">24 Tours Found</h1>
+                            <p class="results-count-sidebar">Showing results for "Allentown, New Mexico" on "04 Aug, 2022"</p>
+                        </div>
+                        <div class="results-sort">
+                            <span class="sort-label">Sort by:</span>
+                            <select class="sort-select">
+                                <option>Popularity</option>
+                                <option>Price: Low to High</option>
+                                <option>Price: High to Low</option>
+                                <option>Rating</option>
+                                <option>Duration</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Results Grid -->
+                    <div class="results-grid-2col">
+                        <!-- Result Card 1 -->
+                        <div class="result-card">
+                            <div class="result-card-image">
+                                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop" 
+                                     alt="Grand Canyon Adventure">
+                                <div class="result-card-badge">Featured</div>
+                                <button class="result-card-favorite">
+                                    <i data-lucide="heart" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                            <div class="result-card-content">
+                                <h3 class="result-card-title">
+                                    Grand Canyon Adventure with Helicopter Tour
+                                </h3>
+                                <div class="result-card-location">
+                                    <i data-lucide="map-pin" class="w-4 h-4"></i>
+                                    <span>Grand Canyon, Arizona</span>
+                                </div>
+                                <div class="result-card-features">
+                                    <div class="result-card-feature">
+                                        <i data-lucide="clock" class="w-3 h-3"></i>
+                                        <span>5 hours</span>
+                                    </div>
+                                    <div class="result-card-feature">
+                                        <i data-lucide="users" class="w-3 h-3"></i>
+                                        <span>Max 8 people</span>
+                                    </div>
+                                    <div class="result-card-feature">
+                                        <i data-lucide="shield-check" class="w-3 h-3"></i>
+                                        <span>Free cancellation</span>
+                                    </div>
+                                </div>
+                                <div class="result-card-footer">
+                                    <div class="result-card-rating">
+                                        <i data-lucide="star" class="star-filled"></i>
+                                        <span class="text-sm font-semibold text-secondary">4.9</span>
+                                        <span class="text-xs text-gray">(124)</span>
+                                    </div>
+                                    <div class="result-card-price">
+                                        <div class="result-card-price-amount">$320</div>
+                                        <div class="result-card-price-duration">per person</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Result Card 2 -->
+                        <div class="result-card">
+                            <div class="result-card-image">
+                                <img src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?w=400&h=300&fit=crop" 
+                                     alt="Desert Safari Experience">
+                                <button class="result-card-favorite">
+                                    <i data-lucide="heart" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                            <div class="result-card-content">
+                                <h3 class="result-card-title">
+                                    Desert Safari with Traditional Camping
+                                </h3>
+                                <div class="result-card-location">
+                                    <i data-lucide="map-pin" class="w-4 h-4"></i>
+                                    <span>Santa Fe, New Mexico</span>
+                                </div>
+                                <div class="result-card-features">
+                                    <div class="result-card-feature">
+                                        <i data-lucide="clock" class="w-3 h-3"></i>
+                                        <span>2 days</span>
+                                    </div>
+                                    <div class="result-card-feature">
+                                        <i data-lucide="users" class="w-3 h-3"></i>
+                                        <span>Max 12 people</span>
+                                    </div>
+                                    <div class="result-card-feature">
+                                        <i data-lucide="utensils" class="w-3 h-3"></i>
+                                        <span>Meals included</span>
+                                    </div>
+                                </div>
+                                <div class="result-card-footer">
+                                    <div class="result-card-rating">
+                                        <i data-lucide="star" class="star-filled"></i>
+                                        <span class="text-sm font-semibold text-secondary">4.7</span>
+                                        <span class="text-xs text-gray">(89)</span>
+                                    </div>
+                                    <div class="result-card-price">
+                                        <div class="result-card-price-amount">$180</div>
+                                        <div class="result-card-price-duration">per person</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Result Card 3 -->
+                        <div class="result-card">
+                            <div class="result-card-image">
+                                <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=400&h=300&fit=crop" 
+                                     alt="White Sands National Park">
+                                <button class="result-card-favorite">
+                                    <i data-lucide="heart" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                            <div class="result-card-content">
+                                <h3 class="result-card-title">
+                                    White Sands National Park Photography Tour
+                                </h3>
+                                <div class="result-card-location">
+                                    <i data-lucide="map-pin" class="w-4 h-4"></i>
+                                    <span>Alamogordo, New Mexico</span>
+                                </div>
+                                <div class="result-card-features">
+                                    <div class="result-card-feature">
+                                        <i data-lucide="clock" class="w-3 h-3"></i>
+                                        <span>6 hours</span>
+                                    </div>
+                                    <div class="result-card-feature">
+                                        <i data-lucide="users" class="w-3 h-3"></i>
+                                        <span>Max 6 people</span>
+                                    </div>
+                                    <div class="result-card-feature">
+                                        <i data-lucide="camera" class="w-3 h-3"></i>
+                                        <span>Photo guide</span>
+                                    </div>
+                                </div>
+                                <div class="result-card-footer">
+                                    <div class="result-card-rating">
+                                        <i data-lucide="star" class="star-filled"></i>
+                                        <span class="text-sm font-semibold text-secondary">4.8</span>
+                                        <span class="text-xs text-gray">(67)</span>
+                                    </div>
+                                    <div class="result-card-price">
+                                        <div class="result-card-price-amount">$95</div>
+                                        <div class="result-card-price-duration">per person</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Result Card 4 -->
+                        <div class="result-card">
+                            <div class="result-card-image">
+                                <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=400&h=300&fit=crop" 
+                                     alt="Albuquerque Hot Air Balloon">
+                                <div class="result-card-badge">Popular</div>
+                                <button class="result-card-favorite">
+                                    <i data-lucide="heart" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                            <div class="result-card-content">
+                                <h3 class="result-card-title">
+                                    Albuquerque Hot Air Balloon Ride at Sunrise
+                                </h3>
+                                <div class="result-card-location">
+                                    <i data-lucide="map-pin" class="w-4 h-4"></i>
+                                    <span>Albuquerque, New Mexico</span>
+                                </div>
+                                <div class="result-card-features">
+                                    <div class="result-card-feature">
+                                        <i data-lucide="clock" class="w-3 h-3"></i>
+                                        <span>3 hours</span>
+                                    </div>
+                                    <div class="result-card-feature">
+                                        <i data-lucide="users" class="w-3 h-3"></i>
+                                        <span>Max 4 people</span>
+                                    </div>
+                                    <div class="result-card-feature">
+                                        <i data-lucide="coffee" class="w-3 h-3"></i>
+                                        <span>Breakfast included</span>
+                                    </div>
+                                </div>
+                                <div class="result-card-footer">
+                                    <div class="result-card-rating">
+                                        <i data-lucide="star" class="star-filled"></i>
+                                        <span class="text-sm font-semibold text-secondary">4.9</span>
+                                        <span class="text-xs text-gray">(156)</span>
+                                    </div>
+                                    <div class="result-card-price">
+                                        <div class="result-card-price-amount">$220</div>
+                                        <div class="result-card-price-duration">per person</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <nav class="pagination">
+                        <a href="#" class="pagination-arrow pagination-btn-disabled">
+                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#" class="pagination-btn pagination-btn-active">1</a>
+                        <a href="#" class="pagination-btn pagination-btn-default">2</a>
+                        <a href="#" class="pagination-btn pagination-btn-default">3</a>
+                        <span class="pagination-dots">...</span>
+                        <a href="#" class="pagination-btn pagination-btn-default">8</a>
+                        <a href="#" class="pagination-arrow">
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="section-container bg-white">
+        <div class="section-content">
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-12">
+                <!-- Logo and Address -->
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="logo">Tripy</div>
+                    <p class="text-sm text-dark leading-relaxed">
+                        4517 Washington Ave. Manchester, Kentucky 39495
+                    </p>
+                    
+                    <!-- Social Media -->
+                    <div class="flex gap-3">
+                        <a href="#" class="social-icon">
+                            <i data-lucide="facebook" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i data-lucide="instagram" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i data-lucide="youtube" class="w-6 h-6"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- About -->
+                <div class="space-y-6">
+                    <h4 class="text-lg font-bold text-dark">About</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="nav-link">About us</a></li>
+                        <li><a href="#" class="nav-link">Features</a></li>
+                        <li><a href="#" class="nav-link">News</a></li>
+                        <li><a href="#" class="nav-link">Plans</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company -->
+                <div class="space-y-6">
+                    <h4 class="text-lg font-bold text-dark">Company</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="nav-link">Why Tripy</a></li>
+                        <li><a href="#" class="nav-link">Partner with us</a></li>
+                        <li><a href="#" class="nav-link">FAQ</a></li>
+                        <li><a href="#" class="nav-link">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Support -->
+                <div class="space-y-6">
+                    <h4 class="text-lg font-bold text-dark">Support</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="nav-link">Account</a></li>
+                        <li><a href="#" class="nav-link">Support center</a></li>
+                        <li><a href="#" class="nav-link">Feedback</a></li>
+                        <li><a href="#" class="nav-link">Contact us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Newsletter -->
+                <div class="space-y-6">
+                    <h4 class="text-lg font-bold text-dark">Newsletter</h4>
+                    <p class="text-sm text-dark leading-relaxed">
+                        Subscribe our newsletter and get exciting offers
+                    </p>
+                    
+                    <!-- Newsletter Form -->
+                    <div class="newsletter-form">
+                        <input type="email" 
+                               placeholder="Enter your email address" 
+                               class="newsletter-input">
+                        <button class="newsletter-submit">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        
+        // Simple mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('.mobile-only button');
+            const navigationMenu = document.querySelector('.mobile-hidden');
+            
+            if (mobileMenuButton && navigationMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    navigationMenu.classList.toggle('mobile-hidden');
+                    navigationMenu.classList.toggle('mobile-only');
+                });
+            }
+
+            // Add some basic interactivity to filters and sort
+            const filterSelects = document.querySelectorAll('.filter-select');
+            filterSelects.forEach(select => {
+                select.addEventListener('change', function() {
+                    // In a real application, this would trigger a new search
+                    console.log('Filter changed:', this.value);
+                });
+            });
+
+            // Heart/favorite button functionality
+            const favoriteButtons = document.querySelectorAll('.result-card-favorite');
+            favoriteButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const icon = this.querySelector('i');
+                    if (icon.getAttribute('data-lucide') === 'heart') {
+                        icon.setAttribute('data-lucide', 'heart-filled');
+                        this.style.color = '#E61C5D';
+                    } else {
+                        icon.setAttribute('data-lucide', 'heart');
+                        this.style.color = '';
+                    }
+                    lucide.createIcons();
+                });
+            });
+
+            // Range slider functionality
+            const priceRange = document.getElementById('priceRange');
+            const groupSizeRange = document.getElementById('groupSize');
+            
+            if (priceRange) {
+                const priceValues = priceRange.parentElement.querySelector('.range-values');
+                priceRange.addEventListener('input', function() {
+                    const value = parseInt(this.value);
+                    const minSpan = priceValues.children[0];
+                    const maxSpan = priceValues.children[1];
+                    minSpan.textContent = '$0';
+                    maxSpan.textContent = '$' + value;
+                });
+            }
+
+            if (groupSizeRange) {
+                const groupValues = groupSizeRange.parentElement.querySelector('.range-values');
+                groupSizeRange.addEventListener('input', function() {
+                    const value = parseInt(this.value);
+                    const minSpan = groupValues.children[0];
+                    const maxSpan = groupValues.children[1];
+                    minSpan.textContent = '1 person';
+                    maxSpan.textContent = value + (value === 20 ? '+ people' : ' people');
+                });
+            }
+
+            // Toggle switch functionality
+            const toggleSwitches = document.querySelectorAll('.toggle-switch');
+            toggleSwitches.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                });
+            });
+
+            // Rating filter functionality
+            const ratingOptions = document.querySelectorAll('.rating-option');
+            ratingOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    ratingOptions.forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Checkbox functionality
+            const checkboxInputs = document.querySelectorAll('.checkbox-input');
+            checkboxInputs.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    // In a real app, this would trigger filter updates
+                    console.log('Filter changed:', this.nextElementSibling.textContent, this.checked);
+                });
+            });
+
+            // Filter actions
+            const applyBtn = document.querySelector('.btn-filter-apply');
+            const clearBtn = document.querySelector('.btn-filter-clear');
+
+            if (applyBtn) {
+                applyBtn.addEventListener('click', function() {
+                    // In a real app, this would apply all filters
+                    console.log('Applying filters...');
+                });
+            }
+
+            if (clearBtn) {
+                clearBtn.addEventListener('click', function() {
+                    // Clear all filters
+                    checkboxInputs.forEach(cb => cb.checked = false);
+                    toggleSwitches.forEach(toggle => toggle.classList.remove('active'));
+                    ratingOptions.forEach(opt => opt.classList.remove('active'));
+                    if (ratingOptions.length > 0) ratingOptions[0].classList.add('active');
+                    if (priceRange) priceRange.value = 500;
+                    if (groupSizeRange) groupSizeRange.value = 10;
+                    console.log('Filters cleared');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
