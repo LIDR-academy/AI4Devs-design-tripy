@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - Tripy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#E61C5D',
+                        secondary: '#FFBD39',
+                        dark: '#112B3C',
+                        gray: '#808080',
+                        'light-gray': '#FAFAFA'
+                    },
+                    fontFamily: {
+                        'barlow': ['Barlow', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="components.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body class="font-barlow bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="section-content">
+            <div class="flex justify-between items-center h-24">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="logo">Tripy</div>
+                </div>
+                
+                <!-- Navigation Menu -->
+                <div class="mobile-hidden flex items-center space-x-10">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#pricing" class="nav-link">Price</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                
+                <!-- CTA Buttons -->
+                <div class="mobile-hidden flex items-center space-x-8">
+                    <a href="#" class="nav-link">Login</a>
+                    <a href="#" class="btn-primary">Register</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="mobile-only">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Results Header Section -->
+    <section class="section-container bg-white pt-32 pb-8">
+        <div class="section-content">
+            <!-- Breadcrumb Navigation -->
+            <nav class="breadcrumb">
+                <a href="index.html" class="breadcrumb-item">Home</a>
+                <span class="breadcrumb-separator">•</span>
+                <a href="#" class="breadcrumb-item">Search</a>
+                <span class="breadcrumb-separator">•</span>
+                <span class="breadcrumb-active">Results</span>
+            </nav>
+
+            <!-- Results Header -->
+            <div class="results-header">
+                <h1 class="results-title">Search Results</h1>
+                <p class="results-subtitle">Showing tours for "Allentown, New Mexico" on "04 Aug, 2022"</p>
+                <p class="results-count">Found 24 amazing tours for your search criteria</p>
+            </div>
+
+            <!-- Compact Search Bar -->
+            <div class="search-bar-compact max-w-4xl">
+                <div class="search-bar-compact-content">
+                    <!-- Location -->
+                    <div class="search-field-compact">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-primary"></i>
+                        <span class="search-field-compact-value">Allentown, New Mexico</span>
+                        <i data-lucide="chevron-down" class="w-3 h-3 text-gray"></i>
+                    </div>
+                    
+                    <!-- Divider -->
+                    <div class="search-divider-compact"></div>
+                    
+                    <!-- Date -->
+                    <div class="search-field-compact">
+                        <i data-lucide="calendar" class="w-4 h-4 text-primary"></i>
+                        <span class="search-field-compact-value">04 Aug, 2022</span>
+                        <i data-lucide="chevron-down" class="w-3 h-3 text-gray"></i>
+                    </div>
+                    
+                    <!-- Divider -->
+                    <div class="search-divider-compact"></div>
+                    
+                    <!-- Guests -->
+                    <div class="search-field-compact">
+                        <i data-lucide="users" class="w-4 h-4 text-primary"></i>
+                        <span class="search-field-compact-value">2 Guests</span>
+                        <i data-lucide="chevron-down" class="w-3 h-3 text-gray"></i>
+                    </div>
+                    
+                    <!-- Search Button -->
+                    <button class="search-button-compact">
+                        <i data-lucide="search" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="bg-gray-50 py-6">
+        <div class="section-content">
+            <!-- Filter Bar -->
+            <div class="filter-bar">
+                <div class="filter-bar-content">
+                    <!-- Filter Groups -->
+                    <div class="flex gap-8 flex-wrap">
+                        <!-- Price Filter -->
+                        <div class="filter-group">
+                            <label class="filter-label">Price Range</label>
+                            <select class="filter-select">
+                                <option>Any Price</option>
+                                <option>Under $100</option>
+                                <option>$100 - $300</option>
+                                <option>$300 - $500</option>
+                                <option>Over $500</option>
+                            </select>
+                        </div>
+
+                        <!-- Duration Filter -->
+                        <div class="filter-group">
+                            <label class="filter-label">Duration</label>
+                            <select class="filter-select">
+                                <option>Any Duration</option>
+                                <option>1-3 Days</option>
+                                <option>4-7 Days</option>
+                                <option>1-2 Weeks</option>
+                                <option>2+ Weeks</option>
+                            </select>
+                        </div>
+
+                        <!-- Tour Type Filter -->
+                        <div class="filter-group">
+                            <label class="filter-label">Tour Type</label>
+                            <select class="filter-select">
+                                <option>All Types</option>
+                                <option>Adventure</option>
+                                <option>Cultural</option>
+                                <option>Relaxation</option>
+                                <option>Wildlife</option>
+                            </select>
+                        </div>
+
+                        <!-- Rating Filter -->
+                        <div class="filter-group">
+                            <label class="filter-label">Rating</label>
+                            <select class="filter-select">
+                                <option>Any Rating</option>
+                                <option>4.5+ Stars</option>
+                                <option>4.0+ Stars</option>
+                                <option>3.5+ Stars</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Sort Options -->
+                    <div class="sort-dropdown">
+                        <button class="sort-button">
+                            <span>Sort by: Popularity</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="section-container bg-gray-50">
+        <div class="section-content">
+
+            <!-- Results Grid -->
+            <div class="results-grid">
+                <!-- Result Card 1 -->
+                <div class="result-card">
+                    <div class="result-card-image">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop" 
+                             alt="Grand Canyon Adventure">
+                        <div class="result-card-badge">Featured</div>
+                        <button class="result-card-favorite">
+                            <i data-lucide="heart" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <div class="result-card-content">
+                        <h3 class="result-card-title">
+                            Grand Canyon Adventure with Helicopter Tour
+                        </h3>
+                        <div class="result-card-location">
+                            <i data-lucide="map-pin" class="w-4 h-4"></i>
+                            <span>Grand Canyon, Arizona</span>
+                        </div>
+                        <div class="result-card-features">
+                            <div class="result-card-feature">
+                                <i data-lucide="clock" class="w-3 h-3"></i>
+                                <span>5 hours</span>
+                            </div>
+                            <div class="result-card-feature">
+                                <i data-lucide="users" class="w-3 h-3"></i>
+                                <span>Max 8 people</span>
+                            </div>
+                            <div class="result-card-feature">
+                                <i data-lucide="shield-check" class="w-3 h-3"></i>
+                                <span>Free cancellation</span>
+                            </div>
+                        </div>
+                        <div class="result-card-footer">
+                            <div class="result-card-rating">
+                                <i data-lucide="star" class="star-filled"></i>
+                                <span class="text-sm font-semibold text-secondary">4.9</span>
+                                <span class="text-xs text-gray">(124)</span>
+                            </div>
+                            <div class="result-card-price">
+                                <div class="result-card-price-amount">$320</div>
+                                <div class="result-card-price-duration">per person</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Result Card 2 -->
+                <div class="result-card">
+                    <div class="result-card-image">
+                        <img src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?w=400&h=300&fit=crop" 
+                             alt="Desert Safari Experience">
+                        <button class="result-card-favorite">
+                            <i data-lucide="heart" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <div class="result-card-content">
+                        <h3 class="result-card-title">
+                            Desert Safari with Traditional Camping
+                        </h3>
+                        <div class="result-card-location">
+                            <i data-lucide="map-pin" class="w-4 h-4"></i>
+                            <span>Santa Fe, New Mexico</span>
+                        </div>
+                        <div class="result-card-features">
+                            <div class="result-card-feature">
+                                <i data-lucide="clock" class="w-3 h-3"></i>
+                                <span>2 days</span>
+                            </div>
+                            <div class="result-card-feature">
+                                <i data-lucide="users" class="w-3 h-3"></i>
+                                <span>Max 12 people</span>
+                            </div>
+                            <div class="result-card-feature">
+                                <i data-lucide="utensils" class="w-3 h-3"></i>
+                                <span>Meals included</span>
+                            </div>
+                        </div>
+                        <div class="result-card-footer">
+                            <div class="result-card-rating">
+                                <i data-lucide="star" class="star-filled"></i>
+                                <span class="text-sm font-semibold text-secondary">4.7</span>
+                                <span class="text-xs text-gray">(89)</span>
+                            </div>
+                            <div class="result-card-price">
+                                <div class="result-card-price-amount">$180</div>
+                                <div class="result-card-price-duration">per person</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Result Card 3 -->
+                <div class="result-card">
+                    <div class="result-card-image">
+                        <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=400&h=300&fit=crop" 
+                             alt="White Sands National Park">
+                        <button class="result-card-favorite">
+                            <i data-lucide="heart" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <div class="result-card-content">
+                        <h3 class="result-card-title">
+                            White Sands National Park Photography Tour
+                        </h3>
+                        <div class="result-card-location">
+                            <i data-lucide="map-pin" class="w-4 h-4"></i>
+                            <span>Alamogordo, New Mexico</span>
+                        </div>
+                        <div class="result-card-features">
+                            <div class="result-card-feature">
+                                <i data-lucide="clock" class="w-3 h-3"></i>
+                                <span>6 hours</span>
+                            </div>
+                            <div class="result-card-feature">
+                                <i data-lucide="users" class="w-3 h-3"></i>
+                                <span>Max 6 people</span>
+                            </div>
+                            <div class="result-card-feature">
+                                <i data-lucide="camera" class="w-3 h-3"></i>
+                                <span>Photo guide</span>
+                            </div>
+                        </div>
+                        <div class="result-card-footer">
+                            <div class="result-card-rating">
+                                <i data-lucide="star" class="star-filled"></i>
+                                <span class="text-sm font-semibold text-secondary">4.8</span>
+                                <span class="text-xs text-gray">(67)</span>
+                            </div>
+                            <div class="result-card-price">
+                                <div class="result-card-price-amount">$95</div>
+                                <div class="result-card-price-duration">per person</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Result Card 4 -->
+                <div class="result-card">
+                    <div class="result-card-image">
+                        <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=400&h=300&fit=crop" 
+                             alt="Albuquerque Hot Air Balloon">
+                        <div class="result-card-badge">Popular</div>
+                        <button class="result-card-favorite">
+                            <i data-lucide="heart" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <div class="result-card-content">
+                        <h3 class="result-card-title">
+                            Albuquerque Hot Air Balloon Ride at Sunrise
+                        </h3>
+                        <div class="result-card-location">
+                            <i data-lucide="map-pin" class="w-4 h-4"></i>
+                            <span>Albuquerque, New Mexico</span>
+                        </div>
+                        <div class="result-card-features">
+                            <div class="result-card-feature">
+                                <i data-lucide="clock" class="w-3 h-3"></i>
+                                <span>3 hours</span>
+                            </div>
+                            <div class="result-card-feature">
+                                <i data-lucide="users" class="w-3 h-3"></i>
+                                <span>Max 4 people</span>
+                            </div>
+                            <div class="result-card-feature">
+                                <i data-lucide="coffee" class="w-3 h-3"></i>
+                                <span>Breakfast included</span>
+                            </div>
+                        </div>
+                        <div class="result-card-footer">
+                            <div class="result-card-rating">
+                                <i data-lucide="star" class="star-filled"></i>
+                                <span class="text-sm font-semibold text-secondary">4.9</span>
+                                <span class="text-xs text-gray">(156)</span>
+                            </div>
+                            <div class="result-card-price">
+                                <div class="result-card-price-amount">$220</div>
+                                <div class="result-card-price-duration">per person</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Result Card 5 -->
+                <div class="result-card">
+                    <div class="result-card-image">
+                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=300&fit=crop" 
+                             alt="Taos Pueblo Cultural Tour">
+                        <button class="result-card-favorite">
+                            <i data-lucide="heart" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <div class="result-card-content">
+                        <h3 class="result-card-title">
+                            Taos Pueblo Cultural Heritage Tour
+                        </h3>
+                        <div class="result-card-location">
+                            <i data-lucide="map-pin" class="w-4 h-4"></i>
+                            <span>Taos, New Mexico</span>
+                        </div>
+                        <div class="result-card-features">
+                            <div class="result-card-feature">
+                                <i data-lucide="clock" class="w-3 h-3"></i>
+                                <span>4 hours</span>
+                            </div>
+                            <div class="result-card-feature">
+                                <i data-lucide="users" class="w-3 h-3"></i>
+                                <span>Max 15 people</span>
+                            </div>
+                            <div class="result-card-feature">
+                                <i data-lucide="book-open" class="w-3 h-3"></i>
+                                <span>Cultural guide</span>
+                            </div>
+                        </div>
+                        <div class="result-card-footer">
+                            <div class="result-card-rating">
+                                <i data-lucide="star" class="star-filled"></i>
+                                <span class="text-sm font-semibold text-secondary">4.6</span>
+                                <span class="text-xs text-gray">(43)</span>
+                            </div>
+                            <div class="result-card-price">
+                                <div class="result-card-price-amount">$65</div>
+                                <div class="result-card-price-duration">per person</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Result Card 6 -->
+                <div class="result-card">
+                    <div class="result-card-image">
+                        <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=400&h=300&fit=crop" 
+                             alt="Bandelier National Monument">
+                        <button class="result-card-favorite">
+                            <i data-lucide="heart" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <div class="result-card-content">
+                        <h3 class="result-card-title">
+                            Bandelier Ancient Cliff Dwellings Hike
+                        </h3>
+                        <div class="result-card-location">
+                            <i data-lucide="map-pin" class="w-4 h-4"></i>
+                            <span>Los Alamos, New Mexico</span>
+                        </div>
+                        <div class="result-card-features">
+                            <div class="result-card-feature">
+                                <i data-lucide="clock" class="w-3 h-3"></i>
+                                <span>5 hours</span>
+                            </div>
+                            <div class="result-card-feature">
+                                <i data-lucide="users" class="w-3 h-3"></i>
+                                <span>Max 10 people</span>
+                            </div>
+                            <div class="result-card-feature">
+                                <i data-lucide="mountain" class="w-3 h-3"></i>
+                                <span>Moderate hike</span>
+                            </div>
+                        </div>
+                        <div class="result-card-footer">
+                            <div class="result-card-rating">
+                                <i data-lucide="star" class="star-filled"></i>
+                                <span class="text-sm font-semibold text-secondary">4.7</span>
+                                <span class="text-xs text-gray">(78)</span>
+                            </div>
+                            <div class="result-card-price">
+                                <div class="result-card-price-amount">$85</div>
+                                <div class="result-card-price-duration">per person</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <nav class="pagination">
+                <a href="#" class="pagination-arrow pagination-btn-disabled">
+                    <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                </a>
+                <a href="#" class="pagination-btn pagination-btn-active">1</a>
+                <a href="#" class="pagination-btn pagination-btn-default">2</a>
+                <a href="#" class="pagination-btn pagination-btn-default">3</a>
+                <span class="pagination-dots">...</span>
+                <a href="#" class="pagination-btn pagination-btn-default">8</a>
+                <a href="#" class="pagination-arrow">
+                    <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </a>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="section-container bg-white">
+        <div class="section-content">
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-12">
+                <!-- Logo and Address -->
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="logo">Tripy</div>
+                    <p class="text-sm text-dark leading-relaxed">
+                        4517 Washington Ave. Manchester, Kentucky 39495
+                    </p>
+                    
+                    <!-- Social Media -->
+                    <div class="flex gap-3">
+                        <a href="#" class="social-icon">
+                            <i data-lucide="facebook" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i data-lucide="instagram" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i data-lucide="youtube" class="w-6 h-6"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- About -->
+                <div class="space-y-6">
+                    <h4 class="text-lg font-bold text-dark">About</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="nav-link">About us</a></li>
+                        <li><a href="#" class="nav-link">Features</a></li>
+                        <li><a href="#" class="nav-link">News</a></li>
+                        <li><a href="#" class="nav-link">Plans</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company -->
+                <div class="space-y-6">
+                    <h4 class="text-lg font-bold text-dark">Company</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="nav-link">Why Tripy</a></li>
+                        <li><a href="#" class="nav-link">Partner with us</a></li>
+                        <li><a href="#" class="nav-link">FAQ</a></li>
+                        <li><a href="#" class="nav-link">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Support -->
+                <div class="space-y-6">
+                    <h4 class="text-lg font-bold text-dark">Support</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="nav-link">Account</a></li>
+                        <li><a href="#" class="nav-link">Support center</a></li>
+                        <li><a href="#" class="nav-link">Feedback</a></li>
+                        <li><a href="#" class="nav-link">Contact us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Newsletter -->
+                <div class="space-y-6">
+                    <h4 class="text-lg font-bold text-dark">Newsletter</h4>
+                    <p class="text-sm text-dark leading-relaxed">
+                        Subscribe our newsletter and get exciting offers
+                    </p>
+                    
+                    <!-- Newsletter Form -->
+                    <div class="newsletter-form">
+                        <input type="email" 
+                               placeholder="Enter your email address" 
+                               class="newsletter-input">
+                        <button class="newsletter-submit">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        
+        // Simple mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('.mobile-only button');
+            const navigationMenu = document.querySelector('.mobile-hidden');
+            
+            if (mobileMenuButton && navigationMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    navigationMenu.classList.toggle('mobile-hidden');
+                    navigationMenu.classList.toggle('mobile-only');
+                });
+            }
+
+            // Add some basic interactivity to filters and sort
+            const filterSelects = document.querySelectorAll('.filter-select');
+            filterSelects.forEach(select => {
+                select.addEventListener('change', function() {
+                    // In a real application, this would trigger a new search
+                    console.log('Filter changed:', this.value);
+                });
+            });
+
+            // Heart/favorite button functionality
+            const favoriteButtons = document.querySelectorAll('.result-card-favorite');
+            favoriteButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const icon = this.querySelector('i');
+                    if (icon.getAttribute('data-lucide') === 'heart') {
+                        icon.setAttribute('data-lucide', 'heart-filled');
+                        this.style.color = '#E61C5D';
+                    } else {
+                        icon.setAttribute('data-lucide', 'heart');
+                        this.style.color = '';
+                    }
+                    lucide.createIcons();
+                });
+            });
+        });
+    </script>
+</body>
+</html>

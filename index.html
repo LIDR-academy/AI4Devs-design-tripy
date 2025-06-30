@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tripy - Travel Landing Page (Component System)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#E61C5D',
+                        secondary: '#FFBD39',
+                        dark: '#112B3C',
+                        gray: '#808080',
+                        'light-gray': '#FAFAFA'
+                    },
+                    fontFamily: {
+                        'barlow': ['Barlow', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="components.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body class="font-barlow bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="section-content">
+            <div class="flex justify-between items-center h-24">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="logo">Tripy</div>
+                </div>
+                
+                <!-- Navigation Menu -->
+                <div class="mobile-hidden flex items-center space-x-10">
+                    <a href="#" class="nav-link-active">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#pricing" class="nav-link">Price</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                
+                <!-- CTA Buttons -->
+                <div class="mobile-hidden flex items-center space-x-8">
+                    <a href="#" class="nav-link">Login</a>
+                    <a href="#" class="btn-primary">Register</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="mobile-only">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="section-container bg-section-white pt-32 pb-16 relative overflow-hidden">
+        <div class="section-content">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Hero Content -->
+                <div class="space-y-8">
+                    <div class="space-y-6">
+                        <h1 class="hero-title">
+                            Dare to live the life you've always wanted.
+                        </h1>
+                        <p class="hero-subtitle max-w-md">
+                            Life is short and the world is wide. So, better get started.
+                        </p>
+                    </div>
+                    
+                    <!-- Search Bar -->
+                    <div class="search-bar max-w-md">
+                        <div class="search-bar-content">
+                            <!-- Location -->
+                            <div class="search-field">
+                                <i data-lucide="map-pin" class="w-5 h-5 text-primary"></i>
+                                <div class="space-y-1">
+                                    <div class="flex items-center gap-2">
+                                        <span class="search-field-label">Location</span>
+                                        <i data-lucide="chevron-down" class="w-3 h-3 text-gray"></i>
+                                    </div>
+                                    <span class="search-field-value">Allentown, New Mexico</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Divider -->
+                            <div class="search-divider"></div>
+                            
+                            <!-- Date -->
+                            <div class="search-field">
+                                <i data-lucide="calendar" class="w-5 h-5 text-primary"></i>
+                                <div class="space-y-1">
+                                    <div class="flex items-center gap-2">
+                                        <span class="search-field-label">Date</span>
+                                        <i data-lucide="chevron-down" class="w-3 h-3 text-gray"></i>
+                                    </div>
+                                    <span class="search-field-value">04 Aug, 2022</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Search Button -->
+                            <a href="results.html" class="search-button">
+                                <i data-lucide="search" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hero Images -->
+                <div class="relative">
+                    <div class="relative">
+                        <!-- Large Background Image -->
+                        <div class="w-96 h-96 bg-secondary rounded-t-full overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=400&fit=crop" 
+                                 alt="Travel destination" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <!-- Small Floating Image -->
+                        <div class="floating-image bottom-8 right-8 w-36 h-56 rounded-full border-8 border-white overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=150&h=230&fit=crop" 
+                                 alt="Travel scene" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="section-container bg-section-white">
+        <div class="section-content">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Images -->
+                <div class="relative">
+                    <div class="relative">
+                        <!-- Background Image -->
+                        <div class="w-80 h-96 rounded-full overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=320&h=384&fit=crop" 
+                                 alt="Travel experience" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <!-- Floating Image -->
+                        <div class="floating-image bottom-16 right-16 w-72 h-96 rounded-full border-12 border-white overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=288&h=384&fit=crop" 
+                                 alt="Beautiful destination" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content -->
+                <div class="space-y-8">
+                    <div class="space-y-4">
+                        <span class="section-subtitle">About us</span>
+                        <h2 class="section-title">
+                            Our tour plan is to fulfil your dream wish
+                        </h2>
+                    </div>
+                    
+                    <p class="section-description max-w-lg">
+                        Understand to achieve anything requires faith and belief in yourself, vision, hard work, determination, and dedication.
+                    </p>
+                    
+                    <!-- Statistics -->
+                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="stat-item">
+                            <div class="stat-number">15</div>
+                            <div class="stat-label">Years of Experience</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">1k</div>
+                            <div class="stat-label">Successful Trips</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">20k</div>
+                            <div class="stat-label">Happy Customers</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">4.9</div>
+                            <div class="stat-label">Overall Rating</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tour Packages Section -->
+    <section class="section-container bg-section-light">
+        <div class="section-content">
+            <!-- Section Header -->
+            <div class="flex justify-between items-center mb-16">
+                <div class="space-y-4">
+                    <span class="section-subtitle">Tour Packages</span>
+                    <h2 class="section-title max-w-2xl">
+                        The amazing places around the world
+                    </h2>
+                </div>
+                
+                <!-- Navigation Arrows -->
+                <div class="mobile-hidden flex gap-3">
+                    <button class="btn-icon">
+                        <i data-lucide="chevron-left" class="w-5 h-5 text-primary"></i>
+                    </button>
+                    <button class="btn-icon">
+                        <i data-lucide="chevron-right" class="w-5 h-5 text-primary"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Tour Cards -->
+            <div class="grid-4">
+                <!-- Tour Card 1 -->
+                <div class="tour-card">
+                    <div class="tour-card-image">
+                        <img src="https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=370&h=300&fit=crop" 
+                             alt="Prague, Czechia" 
+                             class="hover-scale">
+                    </div>
+                    <div class="tour-card-content">
+                        <h3 class="tour-card-title">
+                            Fall in love among the winding streets and snow-covered
+                        </h3>
+                        <p class="tour-card-location">Prague, Czechia</p>
+                        
+                        <div class="tour-card-footer">
+                            <div class="tour-card-rating">
+                                <i data-lucide="star" class="star-filled"></i>
+                                <span class="text-sm font-semibold text-secondary">4.9</span>
+                            </div>
+                            <div class="tour-card-price">
+                                <div class="tour-card-price-amount">$200</div>
+                                <div class="tour-card-price-duration">10 days tour</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tour Card 2 -->
+                <div class="tour-card">
+                    <div class="tour-card-image">
+                        <img src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?w=370&h=300&fit=crop" 
+                             alt="Beijing, China" 
+                             class="hover-scale">
+                    </div>
+                    <div class="tour-card-content">
+                        <h3 class="tour-card-title">
+                            History is not about the past but a map of the past
+                        </h3>
+                        <p class="tour-card-location">Beijing, China</p>
+                        
+                        <div class="tour-card-footer">
+                            <div class="tour-card-rating">
+                                <i data-lucide="star" class="star-filled"></i>
+                                <span class="text-sm font-semibold text-secondary">4.9</span>
+                            </div>
+                            <div class="tour-card-price">
+                                <div class="tour-card-price-amount">$450</div>
+                                <div class="tour-card-price-duration">5 days tour</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tour Card 3 -->
+                <div class="tour-card">
+                    <div class="tour-card-image">
+                        <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=370&h=300&fit=crop" 
+                             alt="Istanbul, Turkey" 
+                             class="hover-scale">
+                    </div>
+                    <div class="tour-card-content">
+                        <h3 class="tour-card-title">
+                            The unique character as a symbol of taste and ostentation
+                        </h3>
+                        <p class="tour-card-location">İstanbul, Turkey</p>
+                        
+                        <div class="tour-card-footer">
+                            <div class="tour-card-rating">
+                                <i data-lucide="star" class="star-filled"></i>
+                                <span class="text-sm font-semibold text-secondary">4.9</span>
+                            </div>
+                            <div class="tour-card-price">
+                                <div class="tour-card-price-amount">$150</div>
+                                <div class="tour-card-price-duration">7 days tour</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tour Card 4 -->
+                <div class="tour-card">
+                    <div class="tour-card-image">
+                        <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=370&h=300&fit=crop" 
+                             alt="Paris, France" 
+                             class="hover-scale">
+                    </div>
+                    <div class="tour-card-content">
+                        <h3 class="tour-card-title">
+                            You don't want to pitch a tent and live inside the Louvre
+                        </h3>
+                        <p class="tour-card-location">Paris, France</p>
+                        
+                        <div class="tour-card-footer">
+                            <div class="tour-card-rating">
+                                <i data-lucide="star" class="star-filled"></i>
+                                <span class="text-sm font-semibold text-secondary">4.9</span>
+                            </div>
+                            <div class="tour-card-price">
+                                <div class="tour-card-price-amount">$100</div>
+                                <div class="tour-card-price-duration">10 days tour</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section-container bg-section-white">
+        <div class="section-content">
+            <!-- Section Header -->
+            <div class="text-center mb-16 space-y-4">
+                <span class="section-subtitle">Testimonial</span>
+                <h2 class="section-title">
+                    Satisfied travellers around the world
+                </h2>
+            </div>
+            
+            <!-- Testimonials Grid -->
+            <div class="relative">
+                <!-- Navigation Arrows -->
+                <div class="absolute -left-16 top-1/2 transform -translate-y-1/2 z-10">
+                    <button class="btn-icon">
+                        <i data-lucide="chevron-left" class="w-5 h-5 text-primary"></i>
+                    </button>
+                </div>
+                <div class="absolute -right-16 top-1/2 transform -translate-y-1/2 z-10">
+                    <button class="btn-icon">
+                        <i data-lucide="chevron-right" class="w-5 h-5 text-primary"></i>
+                    </button>
+                </div>
+                
+                <div class="grid-3">
+                    <!-- Testimonial Card 1 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote-icon">
+                            <i data-lucide="quote" class="w-5 h-5 text-white"></i>
+                        </div>
+                        
+                        <div class="testimonial-content">
+                            <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=80&h=80&fit=crop&crop=face" 
+                                 alt="Eleanor Pena" 
+                                 class="testimonial-avatar">
+                            
+                            <div class="space-y-2">
+                                <h4 class="testimonial-name">Eleanor Pena</h4>
+                                <p class="testimonial-role">UI/UX Designer</p>
+                                
+                                <!-- Star Rating -->
+                                <div class="testimonial-rating">
+                                    <i data-lucide="star" class="star-filled"></i>
+                                    <i data-lucide="star" class="star-filled"></i>
+                                    <i data-lucide="star" class="star-filled"></i>
+                                    <i data-lucide="star" class="star-filled"></i>
+                                    <i data-lucide="star" class="star-filled"></i>
+                                </div>
+                            </div>
+                            
+                            <p class="testimonial-text">
+                                Customer testimonials are more effective than paid marketing copy as they take the spotlight away from the seller to shine it on the customers.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial Card 2 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote-icon">
+                            <i data-lucide="quote" class="w-5 h-5 text-white"></i>
+                        </div>
+                        
+                        <div class="testimonial-content">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face" 
+                                 alt="Theresa Webb" 
+                                 class="testimonial-avatar">
+                            
+                            <div class="space-y-2">
+                                <h4 class="testimonial-name">Theresa Webb</h4>
+                                <p class="testimonial-role">Vlogger</p>
+                                
+                                <!-- Star Rating -->
+                                <div class="testimonial-rating">
+                                    <i data-lucide="star" class="star-filled"></i>
+                                    <i data-lucide="star" class="star-filled"></i>
+                                    <i data-lucide="star" class="star-filled"></i>
+                                    <i data-lucide="star" class="star-filled"></i>
+                                    <i data-lucide="star" class="star-filled"></i>
+                                </div>
+                            </div>
+                            
+                            <p class="testimonial-text">
+                                In promotion and advertising, a testimonial consists of a person's written statement extolling the virtue of a product.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial Card 3 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote-icon">
+                            <i data-lucide="quote" class="w-5 h-5 text-white"></i>
+                        </div>
+                        
+                        <div class="testimonial-content">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face" 
+                                 alt="Annette Black" 
+                                 class="testimonial-avatar">
+                            
+                            <div class="space-y-2">
+                                <h4 class="testimonial-name">Annette Black</h4>
+                                <p class="testimonial-role">Doctor</p>
+                                
+                                <!-- Star Rating -->
+                                <div class="testimonial-rating">
+                                    <i data-lucide="star" class="star-filled"></i>
+                                    <i data-lucide="star" class="star-filled"></i>
+                                    <i data-lucide="star" class="star-filled"></i>
+                                    <i data-lucide="star" class="star-filled"></i>
+                                    <i data-lucide="star" class="star-filled"></i>
+                                </div>
+                            </div>
+                            
+                            <p class="testimonial-text">
+                                Testimonials work because they aren't strong sales pitches, they come across in an unbiased voice and establish trust.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Tours Section -->
+    <section class="section-container bg-section-light">
+        <div class="section-content">
+            <div class="text-center space-y-8 mb-16">
+                <h2 class="section-title max-w-4xl mx-auto">
+                    We can do anything we want to if we stick to it long enough.
+                </h2>
+                <p class="section-description">
+                    Do what you can, with what you have, where you are.
+                </p>
+                <a href="results.html" class="btn-primary px-8 py-4">
+                    See all tours
+                </a>
+            </div>
+            
+            <!-- Additional Tour Cards -->
+            <div class="grid-4">
+                <!-- Small Tour Card 1 -->
+                <div class="tour-card-small">
+                    <img src="https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=254&h=290&fit=crop" 
+                         alt="Porto, Portugal" 
+                         class="w-full h-full object-cover">
+                    <div class="tour-card-small-overlay"></div>
+                    <div class="tour-card-small-content">
+                        <h3 class="tour-card-small-title">Porto, Portugal</h3>
+                        <div class="tour-card-small-price">
+                            <span class="text-xl font-bold text-primary">$150</span>
+                            <span class="text-sm">7 days tour</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Small Tour Card 2 -->
+                <div class="tour-card-small">
+                    <img src="https://images.unsplash.com/photo-1431274172761-fca41d930114?w=254&h=290&fit=crop" 
+                         alt="Paris, France" 
+                         class="w-full h-full object-cover">
+                    <div class="tour-card-small-overlay"></div>
+                    <div class="tour-card-small-content">
+                        <h3 class="tour-card-small-title">Paris, France</h3>
+                        <div class="tour-card-small-price">
+                            <span class="text-xl font-bold text-primary">$100</span>
+                            <span class="text-sm">5 days tour</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Small Tour Card 3 -->
+                <div class="tour-card-small">
+                    <img src="https://images.unsplash.com/photo-1560707303-4e980ce876ad?w=254&h=290&fit=crop" 
+                         alt="Bali, Indonesia" 
+                         class="w-full h-full object-cover">
+                    <div class="tour-card-small-overlay"></div>
+                    <div class="tour-card-small-content">
+                        <h3 class="tour-card-small-title">Bali, Indonesia</h3>
+                        <div class="tour-card-small-price">
+                            <span class="text-xl font-bold text-primary">$250</span>
+                            <span class="text-sm">6 days tour</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Small Tour Card 4 -->
+                <div class="tour-card-small">
+                    <img src="https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=254&h=290&fit=crop" 
+                         alt="Amsterdam, Netherlands" 
+                         class="w-full h-full object-cover">
+                    <div class="tour-card-small-overlay"></div>
+                    <div class="tour-card-small-content">
+                        <h3 class="tour-card-small-title">Amsterdam, Netherlands</h3>
+                        <div class="tour-card-small-price">
+                            <span class="text-xl font-bold text-primary">$150</span>
+                            <span class="text-sm">10 days tour</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="section-container bg-section-white">
+        <div class="section-content">
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-12">
+                <!-- Logo and Address -->
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="logo">Tripy</div>
+                    <p class="text-sm text-dark leading-relaxed">
+                        4517 Washington Ave. Manchester, Kentucky 39495
+                    </p>
+                    
+                    <!-- Social Media -->
+                    <div class="flex gap-3">
+                        <a href="#" class="social-icon">
+                            <i data-lucide="facebook" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i data-lucide="instagram" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i data-lucide="youtube" class="w-6 h-6"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- About -->
+                <div class="space-y-6">
+                    <h4 class="text-lg font-bold text-dark">About</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="nav-link">About us</a></li>
+                        <li><a href="#" class="nav-link">Features</a></li>
+                        <li><a href="#" class="nav-link">News</a></li>
+                        <li><a href="#" class="nav-link">Plans</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company -->
+                <div class="space-y-6">
+                    <h4 class="text-lg font-bold text-dark">Company</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="nav-link">Why Tripy</a></li>
+                        <li><a href="#" class="nav-link">Partner with us</a></li>
+                        <li><a href="#" class="nav-link">FAQ</a></li>
+                        <li><a href="#" class="nav-link">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Support -->
+                <div class="space-y-6">
+                    <h4 class="text-lg font-bold text-dark">Support</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="nav-link">Account</a></li>
+                        <li><a href="#" class="nav-link">Support center</a></li>
+                        <li><a href="#" class="nav-link">Feedback</a></li>
+                        <li><a href="#" class="nav-link">Contact us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Newsletter -->
+                <div class="space-y-6">
+                    <h4 class="text-lg font-bold text-dark">Newsletter</h4>
+                    <p class="text-sm text-dark leading-relaxed">
+                        Subscribe our newsletter and get exciting offers
+                    </p>
+                    
+                    <!-- Newsletter Form -->
+                    <div class="newsletter-form">
+                        <input type="email" 
+                               placeholder="Enter your email address" 
+                               class="newsletter-input">
+                        <button class="newsletter-submit">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        
+        // Simple mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('.mobile-only button');
+            const navigationMenu = document.querySelector('.mobile-hidden');
+            
+            if (mobileMenuButton && navigationMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    navigationMenu.classList.toggle('mobile-hidden');
+                    navigationMenu.classList.toggle('mobile-only');
+                });
+            }
+        });
+    </script>
+</body>
+</html> 
